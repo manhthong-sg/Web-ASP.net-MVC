@@ -1,0 +1,71 @@
+﻿@model IEnumerable<tett.Models.User>
+@{
+    ViewBag.Title = "AccountList";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+
+
+<div class="body-content">
+    <div class="">
+
+        <table class="table table-hover">
+            <thead>
+                @Html.ActionLink("Create New Account", "CreateUserByAdmin")
+            </thead>
+            <thead>
+                <tr>
+                    <th>
+                        Tên Người dùng
+                    </th>
+                    <th>
+                        Tên Đăng nhập
+                    </th>
+                    <th>
+                        Mật khẩu
+                    </th>
+                    <th>
+                        Loại Tài khoản
+                    </th>
+                </tr>
+            </thead>
+            <thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenUser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SDT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PasswordUser)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhanQuyen.TenQuyen)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditUserByAdmin", new { id = item.MaUser }) /
+                            @Html.ActionLink("Delete", "DeleteUserByAdmin", new { id = item.MaUser })
+                        </td>
+                    </tr>
+                }
+            </thead>
+
+
+        </table>
+    </div>
+
+
+    @*Footer*@
+    <div class="section-body">
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    ©TTGo 2021. All rights reserved
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

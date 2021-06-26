@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TTGoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietHopDong">
+    <Key>
+      <PropertyRef Name="SoHD" />
+    </Key>
+    <Property Name="SoCTHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoHD" Type="int" Nullable="false" />
+    <Property Name="MaXe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="soLuong" Type="int" Nullable="false" />
+    <Property Name="TraTruoc" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="NgayNhan" Type="date" />
+    <Property Name="NgayTra" Type="date" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DatXe">
+    <Key>
+      <PropertyRef Name="MaDatXe" />
+    </Key>
+    <Property Name="MaDatXe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="MaUser" Type="int" Nullable="false" />
+    <Property Name="MaLoaiXe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="NgayHenLay" Type="date" Nullable="false" />
+    <Property Name="TinhTrang" Type="bit" />
+  </EntityType>
+  <EntityType Name="HopDong">
+    <Key>
+      <PropertyRef Name="SoHD" />
+    </Key>
+    <Property Name="SoHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ngay" Type="date" />
+    <Property Name="MaUser" Type="int" Nullable="false" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+    <Property Name="DonGia" Type="float" />
+    <Property Name="HTTT" Type="nvarchar(max)" />
+    <Property Name="GiaT" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DieuKhoan" Type="nvarchar(max)" />
+    <Property Name="TinhTrang" Type="nchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LoaiXe">
+    <Key>
+      <PropertyRef Name="MaLoaiXe" />
+    </Key>
+    <Property Name="MaLoaiXe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="TenLoaiXe" Type="nvarchar(max)" />
+    <Property Name="GiaLoaiXe" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SoCho" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+  </EntityType>
+  <EntityType Name="PhanQuyen">
+    <Key>
+      <PropertyRef Name="MaQuyen" />
+    </Key>
+    <Property Name="MaQuyen" Type="int" Nullable="false" />
+    <Property Name="TenQuyen" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'testDB3.dbo.SoDatXe' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SoDatXe">
+    <Key>
+      <PropertyRef Name="MaSo" />
+    </Key>
+    <Property Name="MaSo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoHD" Type="int" />
+    <Property Name="TinhTrang" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'testDB3.dbo.ThamSo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ThamSo">
+    <Key>
+      <PropertyRef Name="TyLeTraThemKhiQuaNgay" />
+      <PropertyRef Name="TyLeTraThemKhiTonHaiXe" />
+    </Key>
+    <Property Name="TyLeTraThemKhiQuaNgay" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="TyLeTraThemKhiTonHaiXe" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ThanhToan">
+    <Key>
+      <PropertyRef Name="MaTT" />
+    </Key>
+    <Property Name="MaTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SoHD" Type="int" Nullable="false" />
+    <Property Name="PhiPS" Type="float" />
+    <Property Name="LyDo" Type="nvarchar(max)" />
+    <Property Name="MaUser" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="MaUser" />
+    </Key>
+    <Property Name="MaUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenUser" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+    <Property Name="Mail" Type="varchar(max)" />
+    <Property Name="MaQuyen" Type="int" Nullable="false" />
+    <Property Name="CMND" Type="int" />
+    <Property Name="SDT" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="NganHang" Type="varchar(max)" />
+    <Property Name="SoTK" Type="char" MaxLength="20" />
+    <Property Name="PasswordUser" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Xe">
+    <Key>
+      <PropertyRef Name="MaXe" />
+    </Key>
+    <Property Name="MaXe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="MaLoaiXe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="BienSo" Type="varchar" MaxLength="11" />
+    <Property Name="TenXe" Type="nvarchar(max)" />
+    <Property Name="MoTa" Type="nvarchar(max)" />
+    <Property Name="GiaXe" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TinhTrang" Type="bit" Nullable="false" />
+    <Property Name="HinhAnh" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="XeRa">
+    <Key>
+      <PropertyRef Name="MaXeRa" />
+    </Key>
+    <Property Name="NgayRa" Type="date" Nullable="false" />
+    <Property Name="MaXe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="MaXeRa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="XeVao">
+    <Key>
+      <PropertyRef Name="MaXeVao" />
+    </Key>
+    <Property Name="NgayVao" Type="date" Nullable="false" />
+    <Property Name="MaXe" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="MaXeVao" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="YeuCau">
+    <Key>
+      <PropertyRef Name="MaYC" />
+    </Key>
+    <Property Name="MaYC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaUser" Type="int" Nullable="false" />
+    <Property Name="TenLoaiXe" Type="nvarchar(max)" />
+    <Property Name="SoCho" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="GhiChu" Type="nvarchar(max)" />
+    <Property Name="TinhTrang" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CTHopDong_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="1" />
+    <End Role="ChiTietHopDong" Type="Self.ChiTietHopDong" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="SoHD" />
+      </Principal>
+      <Dependent Role="ChiTietHopDong">
+        <PropertyRef Name="SoHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTHopDong_Xe">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="1" />
+    <End Role="ChiTietHopDong" Type="Self.ChiTietHopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="MaXe" />
+      </Principal>
+      <Dependent Role="ChiTietHopDong">
+        <PropertyRef Name="MaXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatXe_Khach">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="DatXe" Type="Self.DatXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="MaUser" />
+      </Principal>
+      <Dependent Role="DatXe">
+        <PropertyRef Name="MaUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DatXe_LoaiXe">
+    <End Role="LoaiXe" Type="Self.LoaiXe" Multiplicity="1" />
+    <End Role="DatXe" Type="Self.DatXe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiXe">
+        <PropertyRef Name="MaLoaiXe" />
+      </Principal>
+      <Dependent Role="DatXe">
+        <PropertyRef Name="MaLoaiXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HopDong_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="MaUser" />
+      </Principal>
+      <Dependent Role="HopDong">
+        <PropertyRef Name="MaUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Khach_Account_ID">
+    <End Role="PhanQuyen" Type="Self.PhanQuyen" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhanQuyen">
+        <PropertyRef Name="MaQuyen" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="MaQuyen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhToan_HopDong">
+    <End Role="HopDong" Type="Self.HopDong" Multiplicity="1" />
+    <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HopDong">
+        <PropertyRef Name="SoHD" />
+      </Principal>
+      <Dependent Role="ThanhToan">
+        <PropertyRef Name="SoHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ThanhToan_NhanVien">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="MaUser" />
+      </Principal>
+      <Dependent Role="ThanhToan">
+        <PropertyRef Name="MaUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Xe_LoaiXe">
+    <End Role="LoaiXe" Type="Self.LoaiXe" Multiplicity="1" />
+    <End Role="Xe" Type="Self.Xe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiXe">
+        <PropertyRef Name="MaLoaiXe" />
+      </Principal>
+      <Dependent Role="Xe">
+        <PropertyRef Name="MaLoaiXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XeRa_Xe">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="1" />
+    <End Role="XeRa" Type="Self.XeRa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="MaXe" />
+      </Principal>
+      <Dependent Role="XeRa">
+        <PropertyRef Name="MaXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_XeVao_Xe">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="1" />
+    <End Role="XeVao" Type="Self.XeVao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="MaXe" />
+      </Principal>
+      <Dependent Role="XeVao">
+        <PropertyRef Name="MaXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YeuCau_KHACH">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="YeuCau" Type="Self.YeuCau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="MaUser" />
+      </Principal>
+      <Dependent Role="YeuCau">
+        <PropertyRef Name="MaUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TTGoDBModelStoreContainer">
+    <EntitySet Name="ChiTietHopDong" EntityType="Self.ChiTietHopDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DatXe" EntityType="Self.DatXe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HopDong" EntityType="Self.HopDong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiXe" EntityType="Self.LoaiXe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanQuyen" EntityType="Self.PhanQuyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Xe" EntityType="Self.Xe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XeRa" EntityType="Self.XeRa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="XeVao" EntityType="Self.XeVao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YeuCau" EntityType="Self.YeuCau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SoDatXe" EntityType="Self.SoDatXe" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SoDatXe].[MaSo] AS [MaSo], 
+    [SoDatXe].[SoHD] AS [SoHD], 
+    [SoDatXe].[TinhTrang] AS [TinhTrang]
+    FROM [dbo].[SoDatXe] AS [SoDatXe]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ThamSo" EntityType="Self.ThamSo" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ThamSo].[TyLeTraThemKhiQuaNgay] AS [TyLeTraThemKhiQuaNgay], 
+    [ThamSo].[TyLeTraThemKhiTonHaiXe] AS [TyLeTraThemKhiTonHaiXe]
+    FROM [dbo].[ThamSo] AS [ThamSo]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_CTHopDong_HopDong" Association="Self.FK_CTHopDong_HopDong">
+      <End Role="HopDong" EntitySet="HopDong" />
+      <End Role="ChiTietHopDong" EntitySet="ChiTietHopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTHopDong_Xe" Association="Self.FK_CTHopDong_Xe">
+      <End Role="Xe" EntitySet="Xe" />
+      <End Role="ChiTietHopDong" EntitySet="ChiTietHopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatXe_Khach" Association="Self.FK_DatXe_Khach">
+      <End Role="User" EntitySet="User" />
+      <End Role="DatXe" EntitySet="DatXe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DatXe_LoaiXe" Association="Self.FK_DatXe_LoaiXe">
+      <End Role="LoaiXe" EntitySet="LoaiXe" />
+      <End Role="DatXe" EntitySet="DatXe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HopDong_User" Association="Self.FK_HopDong_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="HopDong" EntitySet="HopDong" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Khach_Account_ID" Association="Self.FK_Khach_Account_ID">
+      <End Role="PhanQuyen" EntitySet="PhanQuyen" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhToan_HopDong" Association="Self.FK_ThanhToan_HopDong">
+      <End Role="HopDong" EntitySet="HopDong" />
+      <End Role="ThanhToan" EntitySet="ThanhToan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ThanhToan_NhanVien" Association="Self.FK_ThanhToan_NhanVien">
+      <End Role="User" EntitySet="User" />
+      <End Role="ThanhToan" EntitySet="ThanhToan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Xe_LoaiXe" Association="Self.FK_Xe_LoaiXe">
+      <End Role="LoaiXe" EntitySet="LoaiXe" />
+      <End Role="Xe" EntitySet="Xe" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XeRa_Xe" Association="Self.FK_XeRa_Xe">
+      <End Role="Xe" EntitySet="Xe" />
+      <End Role="XeRa" EntitySet="XeRa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_XeVao_Xe" Association="Self.FK_XeVao_Xe">
+      <End Role="Xe" EntitySet="Xe" />
+      <End Role="XeVao" EntitySet="XeVao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YeuCau_KHACH" Association="Self.FK_YeuCau_KHACH">
+      <End Role="User" EntitySet="User" />
+      <End Role="YeuCau" EntitySet="YeuCau" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

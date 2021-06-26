@@ -1,0 +1,72 @@
+﻿@model IEnumerable<tett.Models.Xe>
+
+@{
+    ViewBag.Title = "CarList";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Create New", "CreateCarByAdmin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BienSo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiXe.TenLoaiXe)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BienSo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenXe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaXe)
+        </td>
+        <td>
+            @{
+                if (item.TinhTrang.Equals(false))
+                {<p>Chưa thuê</p>}
+                else {
+                <p>Đang cho thuê</p>}
+            }
+        </td>
+        <td>
+            <img src="@Url.Content(item.HinhAnh)" alt="" style="width:124px; height:98px"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiXe.TenLoaiXe)
+        </td>
+        <td>           
+            @Html.ActionLink("Details", "EditCarByAdmin", new { id=item.MaXe }) |
+            @Html.ActionLink("Delete", "DeleteCarByAdmin", new { id=item.MaXe })
+        </td>
+    </tr>
+}
+
+</table>

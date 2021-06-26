@@ -1,0 +1,83 @@
+﻿@model tett.Models.Xe
+
+@{
+    ViewBag.Title = "DetailCateCar";
+    Layout = "~/Views/Shared/_Layout_NhanVien.cshtml";
+}
+
+
+<div>
+    <br />
+    <dl class="dl-horizontal" style="margin-left:14%">
+
+        <div class="row">
+            <div class="col-md-4">
+                <dt>Mã Xe:</dt>
+            </div>
+            <div class="col-md-8">
+                <dd>@Html.DisplayFor(model => model.MaXe)</dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>Tên Xe:</dt>
+            </div>
+            <div class="col-md-8">
+                <dd>@Html.DisplayFor(model => model.TenXe)</dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>Biển số Xe:</dt>
+            </div>
+            <div class="col-md-8">
+                <dd>@Html.DisplayFor(model => model.BienSo)</dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>Mã Xe:</dt>
+            </div>
+            <div class="col-md-8">
+                <dd>@Html.DisplayFor(model => model.MaXe)</dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>Tên loại Xe:</dt>
+            </div>
+            <div class="col-md-8">
+                <dd>@Html.DisplayFor(model => model.LoaiXe.TenLoaiXe)</dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>Gia thuê Xe:</dt>
+            </div>
+            <div class="col-md-8">
+                <dd>@Html.DisplayFor(model => model.GiaXe)</dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>Mô tả:</dt>
+            </div>
+            <div class="col-md-8">
+                <dd>@Html.DisplayFor(model => model.MoTa)</dd>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="">
+
+
+                <dd><img src=" @Html.DisplayFor(model => model.HinhAnh)" alt="" style="width:248px; height:196px; text-align:center" /></dd>
+            </div>
+
+        </div>
+
+
+    </dl>
+</div>
+

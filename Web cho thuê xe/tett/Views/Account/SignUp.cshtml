@@ -1,0 +1,102 @@
+﻿@model tett.Models.User
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Đăng ký</title>
+    <script src="../../Assets/js/jquery.min.js"></script>
+    <!-- Custom Theme files -->
+    <link href="../../Assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- for-mobile-apps -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Classy Login form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- //for-mobile-apps -->
+    <!--Google Fonts-->
+    <link href='../../Assets//fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+    <link href="~/Assets/js/a.js" />
+    <!--JS-->
+    @*<script src="~/Scripts/js_signup.js"></script>*@
+    <script>
+    function validateForm() {
+            var x = document.SignUpForm.fsdt.value;
+            if (x == "") {
+                alert("Sdt must be filled out");
+
+                return false;
+            }
+        }</script>
+</head>
+<body>
+    <header>
+        <!--header start here-->
+        <div class="header">
+            <div class="header-main">
+                <h1>Đăng ký</h1>
+                <div class="header-bottom">
+                    <div class="header-right w3agile">
+
+                        <div class="header-left-bottom agileinfo">
+
+                            @using (Html.BeginForm())
+                            {
+                @Html.AntiForgeryToken()
+                                <form name="SignUpForm" @*onsubmit="return validateForm()" action="Index" method="post"*@>
+                                    @if (ViewBag.Message != null)
+                                    {
+                    <h2 class="error">@ViewBag.ErrorDangKy</h2>}
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.TenUser, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.TenUser, new { htmlAttributes = new { @class = "text", @placeholder = "Nhập họ và tên" } })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "text", @placeholder = "Nhập số điện thoại" } })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.PasswordUser, "", new { @class = "text-danger" })
+                                        @*<input type="password" name="PasswordUser" class="form-control" placeholder="Mật khẩu" />*@
+                                        @Html.EditorFor(model => model.PasswordUser, new { htmlAttributes = new { @class = "text", @placeholder = "Mật khẩu" } })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.ConfirmPass, "", new { @class = "text-danger" })
+                                        @Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "text", @placeholder = "Nhập lại mật khẩu" } })
+                                    </div>
+
+                                    <input type="submit" style="   background-color: #04AA6D" value="Đăng ký">
+
+
+                                </form>}
+                            <br />
+                            <a href="@Url.Action("Login", "Account")"><input type="submit" style="margin-top:5%; backdrop-filter:none; background-color:none" value="Đăng nhập"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+    <!--header end here-->
+    <footer>
+
+        <div class="copyright">
+            <p>©TTGo 2021. All rights reserved</p>
+        </div>
+        <!--footer end heere-->
+    </footer>
+</body>
+</html>
+
+
+<style>
+    .text-danger {
+        font-size: small;
+        color: red
+    }
+</style>

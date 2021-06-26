@@ -1,0 +1,58 @@
+﻿@model IEnumerable<tett.Models.YeuCau>
+
+@{
+    ViewBag.Title = "RequestList";
+    Layout = "~/Views/Shared/_Layout_NhanVien.cshtml";
+}
+
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenLoaiXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoCho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.TenUser)
+        </th>
+        <th>
+            trạng thái
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenLoaiXe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoCho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.TenUser)
+            </td>
+            <td>
+                @{
+                    if (item.TinhTrang == true)
+                    {<p>Đã xác nhận</p> }
+                    else
+                    {<p>Chưa xác nhận</p> }
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Chi tiết", "DetailsRequest", new { id = item.MaYC })
+            </td>
+        </tr>
+    }
+
+</table>

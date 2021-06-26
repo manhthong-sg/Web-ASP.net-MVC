@@ -1,0 +1,66 @@
+﻿@model IEnumerable<tett.Models.Xe>
+
+@{
+    ViewBag.Title = "SearchCar";
+    Layout = "~/Views/Shared/_Layout_KH.cshtml";
+}
+
+<h3 style="color:dodgerblue; "><center>Kết quả tìm kiếm Xe</center></h3>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BienSo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaXe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoaiXe.TenLoaiXe)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.BienSo)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenXe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MoTa)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GiaXe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TinhTrang)
+    </td>
+    <td>
+        @*@Html.DisplayFor(modelItem => item.HinhAnh)*@
+        <img width="80px" ; height="auto" src="@Url.Content(item.HinhAnh)" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.LoaiXe.TenLoaiXe)
+    </td>
+    <td style="background-color:dodgerblue">
+       <a href="@Url.Action("CarDetails", "Cars", new { id = item.MaXe })">Chi tiết</a>
+    </td>
+</tr>
+}
+
+</table>

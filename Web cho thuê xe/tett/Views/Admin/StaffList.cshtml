@@ -1,0 +1,86 @@
+﻿@model IEnumerable<tett.Models.User>
+
+@{
+    ViewBag.Title = "NVList";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "CreateUserByAdmin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CMND)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NganHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoTK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PasswordUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhanQuyen.TenQuyen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenUser)
+        </td>
+        <td>
+            @Convert.ToDateTime(item.NgaySinh).ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NganHang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoTK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PasswordUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhanQuyen.TenQuyen)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "EditUserByAdmin", new { id=item.MaUser }) |
+            @Html.ActionLink("Delete", "DeleteUserByAdmin", new { id=item.MaUser })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,139 @@
+﻿@model tett.Models.User
+
+@{
+    ViewBag.Title = "CreateUserByAdmin";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="body-content" onsubmit="return matchpass()" name="form1">
+        <div class="form-group" style="text-align:center; color:red;">
+        </div>
+        <div class="" style="margin-left:14%;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                Nhập họ tên người dùng
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenUser, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenUser, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Nhập sô điện thoại (tên đăng nhập):
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Nhập Ngày sinh
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "datepicker", @readonly = "readonly"} })
+                    @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Nhập Địa chỉ
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Nhập Email
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                Nhập mật khẩu
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.PassA, new { htmlAttributes = new { @class = "form-control" } })*@
+                    <input type="password" name="PasswordUser" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.PasswordUser, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Nhập lại mật khẩu
+                <div class="col-md-10">
+                    <input type="password" name="ConfirmPass" class="form-control" />
+                    @*@Html.EditorFor(model => model.ConfirmPass, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.ConfirmPass, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                Chọn quyền của tài khoản
+                <div class="col-md-10">
+
+                    @Html.DropDownList("MaQuyen", (IEnumerable<SelectListItem>)ViewBag._phanQuyens, htmlAttributes: new { @class = "form-control" })
+                    @*@Html.DropDownList("MaQuyen", null, htmlAttributes: new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.MaQuyen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="text-align:center">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+
+        @*Footer*@
+        <div class="section-body">
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        ©TTGo 2021. All rights reserved
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+    <script type="text/javascript">
+
+        $('.datepicker').datepicker({
+            dateFormat: "dd/mm/yy",
+                changeMonth: true,
+            changeYear: true,
+            yearRange:'-60:+10'
+            });
+</script>
+
+    <script type="text/javascript">
+        function matchpass() {
+            var firstpassword = document.form1.PasswordUser.value;
+            var secondpassword = document.form1.ConfirmPass.value;
+
+            if (firstpassword == secondpassword) {
+                return true;
+            } else {
+                alert("password must be same!");
+                return false;
+            }
+        }</script>
+}

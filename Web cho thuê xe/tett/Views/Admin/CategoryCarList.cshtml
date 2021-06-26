@@ -1,0 +1,54 @@
+﻿@model IEnumerable<tett.Models.LoaiXe>
+
+@{
+    ViewBag.Title = "CategoryCarList";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "CreateCategoryCarByAdmin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã loại xe
+        </th>
+        <th>
+            Tên loại xe
+        </th>
+        <th>
+            Giá loại xe
+        </th>
+        <th>
+            Số chỗ
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaLoaiXe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenLoaiXe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GiaLoaiXe)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoCho)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoLuong)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "EditCategoryCarByAdmin", new { id = item.MaLoaiXe }) |
+        @Html.ActionLink("Delete", "DeleteCategoryCarByAdmin", new { id = item.MaLoaiXe })
+    </td>
+</tr>
+}
+
+</table>

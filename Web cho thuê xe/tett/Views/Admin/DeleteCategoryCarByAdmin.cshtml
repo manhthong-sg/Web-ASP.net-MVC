@@ -1,0 +1,66 @@
+﻿@model tett.Models.LoaiXe
+
+@{
+    ViewBag.Title = "DeleteCategoryCarByAdmin";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+@using (Html.BeginForm()) {
+
+        @Html.AntiForgeryToken()
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th><h4>Bạn có muốn xoá không?</h4></th>
+            <th>
+                <div class="form-actions no-color">
+                    <input type="submit" value="Có" class="btn btn-default" style="color:#17b6d9" />
+                    <button class="btn btn-default" style="color:black"> @Html.ActionLink("Không", "CategoryCarList")</button>
+                </div>
+            </th>
+        </tr>
+
+    </thead>
+</table>
+    }
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal" style="margin-left:14%;">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoaiXe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoaiXe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaLoaiXe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaLoaiXe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoCho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoCho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+    </dl>
+
+
+</div>

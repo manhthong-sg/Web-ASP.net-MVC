@@ -1,0 +1,141 @@
+﻿@model tett.Models.HopDongModel
+
+@{
+    ViewBag.Title = "CreateHopDong";
+    Layout = "~/Views/Shared/_Layout_KH.cshtml";
+}
+
+<p style="        margin-left: 700px;
+        color: dodgerblue;
+        font-family: 'Times New Roman';font-size: 30px" ><b>KÝ HỢP ĐỒNG</b></p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div style="font-family:'Times New Roman'; font-size: 18px;"  class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Ngay, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Ngay, new { htmlAttributes = new
+       {
+           @class = "form-control", @type = "date", @value=DateTime.Now.Date } 
+       })
+            @Html.ValidationMessageFor(model => model.Ngay, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+    <div class="form-group">
+        <div style="        margin-left: 20px;
+        color: dodgerblue;
+">Mã Xe</div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MaXe, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @value = Session["IDXe"] } })
+            @Html.ValidationMessageFor(model => model.MaXe, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div style="        margin-left: 20px;
+        color: dodgerblue;
+">Tên Xe</div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.TenXe, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @value = Session["TenXe"] } })
+            @Html.ValidationMessageFor(model => model.TenXe, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div style="        margin-left: 20px;
+        color: dodgerblue;
+">Ngày muốn nhận xe</div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.NgayNhan, DateTime.Now.ToString(), new { @Value = "5/11/2021", htmlAttributes = new { @class = "form-control" }, @type = "date" })
+            @Html.ValidationMessageFor(model => model.NgayNhan, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div style="        margin-left: 20px;
+        color: dodgerblue;
+">Ngày trả xe</div>
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.NgayTra, DateTime.Now.ToString(), new { Value = "5/11/2021", htmlAttributes = new { @class = "form-control" }, @type = "date" })
+            @Html.ValidationMessageFor(model => model.NgayTra, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.MaUser, "MaUser", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MaUser", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MaUser, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+    @*<div class="form-group">
+        <div style="margin-left: 20px;">Điều khoản</div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DieuKhoan, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DieuKhoan, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+    <div class="form-group">
+        <div style="        margin-left: 20px;
+        color: dodgerblue;
+">Nội dung</div>
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.NoiDung, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })*@
+            Tôi cam đoan:<br /> - Kiểm tra kỹ xe trước khi nhận. <br />- Thanh toán tiền thuê xe đúng hạn. <br />- Chịu toàn bộ chi phí bảo dưỡng xe theo định kỳ. <br />- Phải tự sửa chữa nếu có xảy ra hỏng hóc nhỏ. <br />- Tuân theo mọi điều khoản bên dưới của website.
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        <div style="        margin-left: 20px;
+        color: dodgerblue;
+">Số tiền trả trước </div>
+        <div class="col-md-10">
+            @Html.LabelFor(model => model.TraTruoc, Session["GiaTT"].ToString(), new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        <div style="        margin-left: 20px;
+        color: dodgerblue;
+">Hình thức thanh toán</div>
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.TenXe, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @value = Session["TenXe"] } })
+            @Html.EditorFor(model => model.HTTT, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @value = Session["HTTT"] } })
+            @Html.ValidationMessageFor(model => model.HTTT, "", new { @class = "text-danger" })*@
+            Thanh toán trực tiếp khi nhận xe.
+        </div>
+    </div>
+
+    @*<div class="form-group">
+        <div style=" margin-left: 20px;color: dodgerblue;">Tổng giá trị hợp đồng thuê</div>
+        <div class="col-md-10">
+            @Html.LabelFor(model => model.GiaT, Session["GiaT"].ToString(), new { htmlAttributes = new { @class = "form-control", disabled = "disabled"} })
+            @Html.ValidationMessageFor(model => model.GiaT, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group">
+        <div style="margin-left: 20px; color:dodgerblue;">Những điều khoản</div>
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.DieuKhoan, new { htmlAttributes = new { @class = "form-control" } , disabled = "disabled", @value = Session["DieuKhoan"] })
+        @Html.ValidationMessageFor(model => model.DieuKhoan, "", new { @class = "text-danger" })*@
+            VUI LÒNG THANH TOÁN 50% SỐ TIỀN THUÊ KHI ĐẾN NHẬN XE. THANH TOÁN 50% CÒN LẠI THANH TOÁN LÚC TRẢ XE.<br /> NẾU QUÁ HẠN CHÚNG TÔI SẼ LẤY THÊM 5% TỔNG HOÁ ĐƠN/ 1 NGÀY
+            <br />VUI LÒNG ĐEM THEO ĐẦY ĐỦ GIẤY TỜ TUỲ THÂN: CMND, BẰNG LÁI XE, SỔ HỘ KHẨU ĐỂ ĐẾN NHẬN XE.
+        </div>
+    </div>
+
+    <div style="margin-left: 750px" class="form-group">
+        
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Xác nhận" class="button cart_button" />
+            </div>
+        
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

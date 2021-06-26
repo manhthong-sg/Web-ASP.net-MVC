@@ -1,0 +1,112 @@
+﻿@model tett.Models.HopDong
+
+@{
+    ViewBag.Title = "HopDongDetails";
+    Layout = "~/Views/Shared/_Layout_KH.cshtml";
+}
+
+<div>
+    <center style="color: dodgerblue"><h3><b>CHI TIẾT HỢP ĐỒNG</b></h3></center>
+    <br />
+    <dl class="dl-horizontal" style="margin-left:14%">
+        <dt>
+            Mã hợp đồng
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SoHD)
+        </dd>
+        <dt>
+            Mã User
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaUser)
+        </dd>
+        <dt>
+            Tên User
+        </dt>
+
+        <dd>
+            @Session["AccountName"]
+        </dd>
+        <dt>
+            Ngày ký hợp đồng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngay)
+        </dd>
+
+        <dt>
+            Ngày giao xe
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ChiTietHopDong.NgayNhan)
+        </dd>
+        <dt>
+            Ngày trả xe dự kiến
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ChiTietHopDong.NgayTra)
+        </dd>
+        <dt>
+            Nội dung
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+        <dt>
+            Điều khoản
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DieuKhoan)
+        </dd>
+
+        @*<dd>
+            @Html.DisplayFor(model => model.ChiTietHopDong.MaXe)
+        </dd>*@
+        <dt> Biển số xe</dt>
+        <dd>@Html.DisplayFor(model => model.ChiTietHopDong.Xe.BienSo)</dd>
+        <dt> Tên xe</dt>
+        <dd>
+            @Html.DisplayFor(model => model.ChiTietHopDong.Xe.TenXe)  -
+            @{
+                var b = Model.ChiTietHopDong.MaXe.ToString();
+                @*@Html.ActionLink("Chi tiết xe", "CarDetails", new { id = b })*@
+                <a style="background-color: dodgerblue" href="@Url.Action("CarDetails", "Cars", new { id =b })">Chi tiết xe</a>
+            }
+        </dd>
+
+        <dt>
+            Đơn giá - Giá thuê xe
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia)
+        </dd>
+
+        <dt>
+            Hình thức thanh toán
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTTT)
+        </dd>
+
+        <dt>
+            Giá Tổng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaT)
+        </dd>
+
+
+
+
+
+
+    </dl>
+</div>
+<p style="background-color:dodgerblue">
+    @Html.ActionLink("Back to List", "HopDongUser", new { maUser = (int)@Session["AccountID"] })
+</p>

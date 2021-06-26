@@ -1,0 +1,80 @@
+﻿@model IEnumerable<tett.Models.HopDong>
+
+@{
+    ViewBag.Title = "HopDongList";
+    Layout = "~/Views/Shared/_Layout_NhanVien.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Mã hợp đồng
+        </th>
+        <th>
+            Ngày ký
+        </th>
+        <th>
+            Tên khách hàng
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>*@
+        <th>
+            Hình thức thanh toán
+        </th>
+        <th>
+            Tổng tiền 
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DieuKhoan)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.ChiTietHopDong.MaLoaiXe)
+        </th>*@
+
+        <th>
+            Tình trạng hợp đồng
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.SoHD)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ngay)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User.TenUser)
+    </td>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.NoiDung)
+        </td>*@
+    @*<td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.HTTT)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GiaT)
+    </td>
+    <td>
+            @Html.DisplayFor(modelItem => item.TinhTrang)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ChiTietHopDong.MaLoaiXe)
+        </td>*@
+
+    <td>
+        @Html.ActionLink("Chi tiết", "DetailsHopDong", new { id = item.SoHD })
+    </td>
+    
+</tr>
+}
+
+</table>

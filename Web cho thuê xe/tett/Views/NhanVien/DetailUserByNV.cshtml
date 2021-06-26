@@ -1,0 +1,111 @@
+﻿@model tett.Models.User
+
+@{
+    ViewBag.Title = "DetailUserByNV";
+    Layout = "~/Views/Shared/_Layout_NhanVien.cshtml";
+}
+
+<div>
+
+    <br />
+    <dl class="dl-horizontal" style="margin-left:14%">
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Tên người dùng:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.TenUser)
+                </dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Ngày sinh:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.NgaySinh)
+                </dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Địa chỉ:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.DiaChi)
+                </dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Mail:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.Mail)
+                </dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Số CMND/ CCCD:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.CMND)
+                </dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Số điện thoại:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.SDT)
+                </dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Tên ngân hàng của tài khoản:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.NganHang)
+                </dd>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <dt>
+                    Só tài khoản:
+                </dt>
+            </div>
+            <div class="col-md-8">
+                <dd>
+                    @Html.DisplayFor(model => model.SoTK)
+                </dd>
+            </div>
+        </div>
+
+    </dl>
+</div>
+

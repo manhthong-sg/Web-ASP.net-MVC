@@ -1,0 +1,92 @@
+﻿@model tett.Models.Xe
+
+@{
+    ViewBag.Title = "DeleteCarByAdmin";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th><h4>Bạn có muốn xoá không?</h4></th>
+                <th>
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Có" class="btn btn-default" style="color:#17b6d9" />
+                        <button class="btn btn-default" style="color:black"> @Html.ActionLink("Không", "CarList")</button>
+                    </div>
+                </th>
+            </tr>
+
+        </thead>
+    </table>
+}
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="margin-left:14%;">
+        <dt>
+            @Html.DisplayNameFor(model => model.BienSo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BienSo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TenXe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenXe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoTa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoTa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaXe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaXe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TinhTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HinhAnh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HinhAnh)
+        </dd>
+        <dd>
+            <img src=" @Html.DisplayFor(model => model.HinhAnh)" alt="" style="width:223px; height:124px" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoaiXe.TenLoaiXe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoaiXe.TenLoaiXe)
+        </dd>
+
+    </dl>
+
+  
+</div>

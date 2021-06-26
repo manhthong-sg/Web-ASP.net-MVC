@@ -1,0 +1,116 @@
+﻿@model tett.Models.User
+
+@{
+    ViewBag.Title = "DeleteUserByAdmin";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<style></style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th><h4>Bạn có muốn xoá không?</h4></th>
+                <th>
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Có" class="btn btn-default" style="color:#17b6d9"/> 
+                        <button class="btn btn-default" style="color:black"> @Html.ActionLink("Không", "AccountList")</button>
+                    </div>
+                </th>
+            </tr>
+
+        </thead>
+    </table>
+
+
+
+}
+<div>
+    <hr />
+    <dl class="dl-horizontal"  style="margin-left:14%;">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NgaySinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgaySinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaChi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMND)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMND)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NganHang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NganHang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoTK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoTK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PasswordUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PasswordUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhanQuyen.TenQuyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhanQuyen.TenQuyen)
+        </dd>
+
+    </dl>
+
+
+</div>
